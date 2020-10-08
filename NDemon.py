@@ -3,7 +3,6 @@ import sys
 import requests
 import json
 from time import sleep
-import os
 
 demon = """
 ══════════════════█════════════════█ 
@@ -53,16 +52,6 @@ menu = """
 [1] IP info
 [2] Number Phone Info
 """
-os.system("clear")
-print(demon)
-os.system('play-audio dem.mp3')
-os.system("clear")
-
-
-
-print(intro)
-print(menu)
-
 def ipinfo():
 	print(	"Введите айпи!"	)
 	ip = input("[IP] : ")
@@ -119,12 +108,19 @@ def numberinfo():
 	except:
 		print('Номер не существует!')
     
+def menu1():
+	os.system('clear')
+	print(intro)
+	print(menu)
+	num = input(	"[!] > "	)
+	if num == "1":
+		ipinfo()
+	if num == "2":
+		numberinfo()
+	else:
+		menu()
 
-num = input(	"[!] > "	)
-if num == "1":
-	ipinfo()
-if num == "2":
-	numberinfo()
-else:
-	print(	intro	)
-	print(	menu	)
+os.system("clear")
+print(demon)
+os.system('play-audio dem.mp3')
+menu1()
